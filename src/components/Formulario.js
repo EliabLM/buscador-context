@@ -5,7 +5,7 @@ import { RecetasContext } from '../Context/RecetasContext';
 const Formulario = () => {
 	// llamamos las categorias desde el Context
 	const { categorias } = useContext(CategoriaContext);
-	const { buscarRecetas } = useContext(RecetasContext);
+	const { buscarRecetas, guardarConsultar } = useContext(RecetasContext);
 
 	// Definimos un state local
 	const [busqueda, guardarBusqueda] = useState({
@@ -27,6 +27,7 @@ const Formulario = () => {
 			onSubmit={(e) => {
 				e.preventDefault();
 				buscarRecetas(busqueda);
+				guardarConsultar(true);
 			}}
 		>
 			<fieldset className="text-center">
